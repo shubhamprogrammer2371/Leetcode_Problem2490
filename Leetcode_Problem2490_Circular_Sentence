@@ -1,0 +1,38 @@
+bool isCircularSentence(char* sentence) {
+    if(sentence[0] != sentence[strlen(sentence) - 1])
+        return 0;
+    for( int i = 0 ; i < strlen(sentence) ; i++)
+        if(sentence[i] == ' ' && (sentence[i-1] != sentence[i+1]))
+            return 0;
+    return 1;
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+bool isCircularSentence(char * sentence){
+    int i=0;
+    char first = sentence[0], last, last_tail, next_head;
+    while(sentence[i] != '\0')
+    {
+        last = sentence[i];
+        if(sentence[i] == ' ' && (sentence[i-1] != sentence[i+1]))
+            return false;
+        i++;
+    }
+    return first==last;
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+bool isCircularSentence(char * sentence){
+    if(sentence[0] != sentence[strlen(sentence) - 1])
+        return 0;
+    for( int i = 0 ; i < strlen(sentence) ; i++)
+        if(isspace(sentence[i]) && (sentence[i-1] != sentence[i+1]))
+            return 0;
+    return 1;
+}
